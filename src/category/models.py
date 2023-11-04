@@ -13,7 +13,7 @@ class CategoryMODEL(models.Model):
 	Cate_available 	  = models.BooleanField(default=True                  , db_index=True  ,                            verbose_name="Available")
 #
 	class Meta:
-	    # 'Z-A' in descending order
+	# 'Z-A' in descending order
 		ordering = ('Cate_name',)
 		verbose_name = "Category"
 		# The Name of the Model That Will Be Displayed In The Admin Page
@@ -37,7 +37,7 @@ class SubCategoryMODEL(models.Model):
 	SubCat_available 	 = models.BooleanField(default=True      					, db_index=True                                								, verbose_name="Available")
 
 	class Meta:
-	    # 'Z-A' in descending order
+	# 'Z-A' in descending order
 		ordering = ('SubCat_name',)
 		verbose_name = "Sub Category"
 		# The Name of the Model That Will Be Displayed In The Admin Page
@@ -46,6 +46,12 @@ class SubCategoryMODEL(models.Model):
     # 'admin'display the field name on a page
 	def __str__(self):
 		return self.SubCat_name
+
+	@staticmethod
+	def get_all_categories():
+            return SubCategoryMODEL.objects.all()
+#
+
 #
 #
 # #

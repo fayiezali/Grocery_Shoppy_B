@@ -32,6 +32,8 @@ urlpatterns = [
     path('', include('checkout.urls')),
     path('', include('search.urls')), 
     path('', include('track_shipment.urls')),  
+    path('', include('category.urls')),  
+
  
     # path('', include('tax.urls')),  
 

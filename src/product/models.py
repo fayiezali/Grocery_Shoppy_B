@@ -21,9 +21,26 @@ class ProductMODEL(models.Model):
         verbose_name        = "Product"
         verbose_name_plural = "Products" 
 
+
+
+    @staticmethod
+    def get_products_by_id(ids):
+        return ProductMODEL.objects.filter (id__in=ids)
+    @staticmethod
+    def get_all_products():
+        return ProductMODEL.objects.all()
+
+    @staticmethod
+    def get_all_products_by_categoryid(category_id):
+        if category_id:
+            return ProductMODEL.objects.filter (product_category=category_id)
+        else:
+            return ProductMODEL.get_all_products();
     # 'admin'display the field name on a page
     def __str__(self):
         return self.product_name
+
+
 
 class ProductImageMODEL(models.Model): 
     ProductImage_product = models.ForeignKey(ProductMODEL ,  related_name="productimages_product" ,on_delete=models.CASCADE ,  verbose_name='Product Name')

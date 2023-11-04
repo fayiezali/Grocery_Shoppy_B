@@ -260,8 +260,40 @@
 				<!-- //deals -->
 			</div>
 			<!-- //product left -->
+{% comment %} ------------------------------------------------------------------------------------------------------------------ {% endcomment %}
+
+			<div class="col-lg-3 mx-auto">
+				<div class="list-group">
+					<a href="/store_path" class="list-group-item list-group-item-action btn btn-outline-success">All Products - Category</a>
+					{% for category in categories %}
+					<a href="/store_path?category={{category.id}}"
+					print(category.id)
+						class="list-group-item list-group-item-action btn btn-outline-success ">{{category.Cate_name}}</a>
+					{% endfor %}
+
+					{% comment %} <a href="/" class="list-group-item list-group-item-action btn btn-outline-success">All Products - Category</a> {% endcomment %}
+					{% comment %} {% for category in category_VAR %}
+					<a href="/?category={{category.id}}"
+					print(category.id)
+						class="list-group-item list-group-item-action btn btn-outline-success ">{{category.Cate_name}}</a>
+					{% endfor %} {% endcomment %}
+				</div>
+			</div>
+
+			{% comment %} <div class="col-lg-3 mx-auto">
+				<div class="list-group">
+	
+					<a href="/" class="list-group-item list-group-item-action btn btn-outline-success">All Products - Sub Category</a>
+	
+					{% for category_sub in sub_category_VAR %}
+					<a href="/?category_sub={{category_sub.id}}"
+						class="list-group-item list-group-item-action btn btn-outline-success ">{{category_sub.SubCat_name}}</a>
+					{% endfor %}
+				</div>
+			</div> {% endcomment %}
 
 
+{% comment %} ------------------------------------------------------------------------------------------------------------------ {% endcomment %}
 <div class="col-md-4 product-men">
 	<div class="container mt-2 mb-3" >
 		<div class="row">
