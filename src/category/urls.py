@@ -5,7 +5,14 @@ from . import views
 #
 #
 urlpatterns = [
-        # path('categories_all', views.store, name="categories_all-URL"),
-        path('store_path', views.store_DEF , name='store-URL'),
+        path('category_path'      , views.category_DEF       , name='category-URL'),
+        path('category_sub_path'  , views.sub_category_DEF   , name='sub_category-URL'),
 
 ]
+
+
+
+
+
+# category_path = category_path
+#            = category_sub_path

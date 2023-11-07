@@ -14,12 +14,12 @@ from django.contrib.auth.models import User
 
 #     return render(request, "dashboard/index.html", context)
 
-def store_DEF(request):
+def category_DEF(request):
     products = None
     
-    categories = SubCategoryMODEL.objects.all()
+    categories = CategoryMODEL.objects.all()
     
-    categoryID = request.GET.get('category')
+    categoryID = request.GET.get('category_item')
     
     if categoryID:
         print(categoryID)
@@ -28,6 +28,24 @@ def store_DEF(request):
         products = ProductMODEL.objects.all();
         
     context={'categories':categories , 'products_all_VAR':products}
+    
+    return render(request, "dashboard/index.html", context)
+
+
+def sub_category_DEF(request):
+    products = None
+    
+    sub_categories_VAR = SubCategoryMODEL.objects.all()
+    
+    sub_category_id_VAR = request.GET.get('category_sub_item')
+    
+    if sub_category_id_VAR:
+        print(sub_category_id_VAR)
+        products = ProductMODEL.get_all_products_by_categoryid(sub_category_id_VAR)
+    else:
+        products = ProductMODEL.objects.all();
+        
+    context={'sub_categories_VAR':sub_categories_VAR , 'products_all_VAR':products}
     
     return render(request, "dashboard/index.html", context)
 
