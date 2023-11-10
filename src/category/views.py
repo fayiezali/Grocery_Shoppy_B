@@ -15,19 +15,21 @@ from django.contrib.auth.models import User
 #     return render(request, "dashboard/index.html", context)
 
 def category_DEF(request):
-    products = None
+    products_VAR = None
     
-    categories = CategoryMODEL.objects.all()
+    categories_VAR = CategoryMODEL.objects.all()
     
     categoryID = request.GET.get('category_item')
-    
+    print(categoryID)
     if categoryID:
+        products_VAR = ProductMODEL.get_all_products_by_categoryid(categoryID)
         print(categoryID)
-        products = ProductMODEL.get_all_products_by_categoryid(categoryID)
+        print(products_VAR)
     else:
-        products = ProductMODEL.objects.all();
+        products_VAR = ProductMODEL.objects.all();
+        print(products_VAR) 
         
-    context={'categories':categories , 'products_all_VAR':products}
+    context={'categories_VAR':categories_VAR , 'products_all_VAR':products_VAR}
     
     return render(request, "dashboard/index.html", context)
 
