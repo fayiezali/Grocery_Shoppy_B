@@ -7,10 +7,19 @@ from product.models import *
 # @login_required(login_url="login/")
 # View the dashboard Page
 def dashboard_DEF(request):
-    # Get All Products and Save In Variable
-    products_all_VAR = ProductMODEL.objects.all()
+    products_VAR = None
+    sub_categories_VAR = SubCategoryMODEL.objects.all()
+    sub_category_id_VAR = request.GET.get('category_sub_item')
+    if sub_category_id_VAR:
+        print(sub_category_id_VAR)
+        products_all_VAR = ProductMODEL.get_all_products_by_categoryid(sub_category_id_VAR)
+        # print('Products_Name_By_Category_ID:',products_VAR)
+    else:
+        # Get All Products and Save In Variable
+        products_all_VAR = ProductMODEL.objects.all();
+
     # Put the data to be displayed on the page in context
-    context={'products_all_VAR':products_all_VAR}
+    context={'sub_categories_VAR':sub_categories_VAR , 'products_all_VAR':products_all_VAR}
     return render(request,'dashboard/index.html', context)
 #
 #

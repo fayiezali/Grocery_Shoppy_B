@@ -18,16 +18,15 @@ def category_DEF(request):
     products_VAR = None
     
     categories_VAR = CategoryMODEL.objects.all()
-    
     categoryID = request.GET.get('category_item')
-    print(categoryID)
+    # print('category_ID:',categoryID)
+    # print('Category_Name:',categories_VAR)
     if categoryID:
         products_VAR = ProductMODEL.get_all_products_by_categoryid(categoryID)
-        print(categoryID)
-        print(products_VAR)
+        # print('Products_Name_By_Category_ID:',products_VAR)
     else:
         products_VAR = ProductMODEL.objects.all();
-        print(products_VAR) 
+        # print('Products_All:',products_VAR)
         
     context={'categories_VAR':categories_VAR , 'products_all_VAR':products_VAR}
     
@@ -35,20 +34,47 @@ def category_DEF(request):
 
 
 def sub_category_DEF(request):
-    products = None
+    products_VAR = None
     
     sub_categories_VAR = SubCategoryMODEL.objects.all()
     
     sub_category_id_VAR = request.GET.get('category_sub_item')
-    
+    # print('category_ID:',sub_category_id_VAR)
+    # print('Category_Name:',sub_categories_VAR)
+
     if sub_category_id_VAR:
         print(sub_category_id_VAR)
-        products = ProductMODEL.get_all_products_by_categoryid(sub_category_id_VAR)
+        products_VAR = ProductMODEL.get_all_products_by_categoryid(sub_category_id_VAR)
+        # print('Products_Name_By_Category_ID:',products_VAR)
     else:
-        products = ProductMODEL.objects.all();
+        products_VAR = ProductMODEL.objects.all();
+        # print('Products_All:',products_VAR)
         
-    context={'sub_categories_VAR':sub_categories_VAR , 'products_all_VAR':products}
+    context={'sub_categories_VAR':sub_categories_VAR , 'products_all_VAR':products_VAR}
     
     return render(request, "dashboard/index.html", context)
 
 
+# Filtering products based on category
+def filtering_products_Based_on_category_DEF(request):
+    products_VAR = None
+    
+    categories_VAR = CategoryMODEL.objects.all()
+    # categories_VAR = SubCategoryMODEL.objects.filter(SubCat_slug='ELECTRONICS')
+
+    
+    # category_id_VAR = request.GET.get('category_menu_item')
+    # print('category_ID:',category_id_VAR)
+    print('filtering_products_Based_on_category_DEF:',categories_VAR)
+
+    # if category_id_VAR:
+    #     print(category_id_VAR)
+    #     products_VAR = ProductMODEL.get_all_products_by_categoryid(category_id_VAR)
+    #     print('Products_Name_By_Category_ID:',products_VAR)
+    # else:
+    #     products_VAR = ProductMODEL.objects.all();
+    #     print('Products_All:',products_VAR)
+        
+    context={'categories_VAR':categories_VAR , 'products_all_VAR':products_VAR}
+    
+    return render(request, "dashboard/index.html", context)

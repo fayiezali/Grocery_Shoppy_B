@@ -723,29 +723,29 @@
 									</a>
 								</li>
 								<li class="dropdown">
-									<a class="nav-stylehead dropdown-toggle" href="#" data-toggle="dropdown">Category - 01
-										<b class="caret"></b>
+									<a class="nav-stylehead dropdown-toggle" href="#" data-toggle="dropdown">ELECTRONICS
+									<b class="caret"></b>
 									</a>
 									<ul class="dropdown-menu agile_short_dropdown">
-										<li>
-											<a href="/category_path" class="list-group-item list-group-item-action btn btn-outline-success">All Category</a>
-										</li>
+										{% comment %} <li>
+											<a href="/category_menu_path" class="list-group-item list-group-item-action btn btn-outline-success">All Subcategory</a>
+										</li>  {% endcomment %}
 
 										<li>
-											{% for category in categories %}
-											<a href="/category_path?category={{category.id}}"
-											print(category.id)
-												class="list-group-item list-group-item-action btn btn-outline-success ">{{category.Cate_name}}</a>
-											{% endfor %}
+											{% for category_menu_item in categories_VAR %}
+											<a  href="/category_menu_path?category_menu_item={{category_menu_item.id}}"> <p>{{category_menu_item.SubCat_category}}<p></a>
+											<a  href="/category_menu_path?category_menu_item={{category_menu_item.id}}"> <p>{{category_menu_item.SubCat_name}}<p></a>
+											<a  href="/category_menu_path?category_menu_item={{category_menu_item.id}}"> <p>{{category_menu_item.SubCat_slug}}<p></a>
+												{% endfor %}
 										</li>
 										
-										<li>
+										{% comment %} <li>
 											<a href="icons.html">Sub Category - 03</a>
 										</li>
 
 										<li>
 											<a href="icons.html">Sub Category - 04</a>
-										</li>
+										</li> {% endcomment %}
 
 									</ul>
 								</li>
@@ -758,8 +758,10 @@
 											<div class="col-sm-4 multi-gd-img">
 												<ul class="multi-column-dropdown">
 													<li>
-														<a href="product.html">Sub Category - 01</a>
-													</li>
+														{% for category_sub_item in sub_categories_VAR %}
+														<a  href="/category_sub_path?category_sub_item={{category_sub_item.id}}"> <p>{{category_sub_item.SubCat_name}}<p></a>
+													{% endfor %}
+																		</li>
 													<li>
 														<a href="product.html">Sub Category - 01</a>
 													</li>
