@@ -6,13 +6,16 @@ ul.resp-tabs-list, p {
 .resp-tabs-list li {
     font-weight: 400;
     font-size: 20px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     display: inline-block;
-    padding: 13px 15px;
-    margin: 0 4px 0 0;
+    padding: 13px 55.5px;
+    margin: 0 17px 0 0;
     list-style: none;
     cursor: pointer;
     float: left;
+}
+.resp-tabs-list li:nth-child(4) {
+    margin: 0;
 }
 
 .resp-tabs-container {
@@ -29,15 +32,14 @@ h2.resp-accordion {
 
 .resp-tab-content {
     display: none;
-    padding: 25px 60px;
+    padding: 40px 53px;
+    -webkit-box-shadow: 0px 4px 11px -1px rgba(0, 0, 0, 0.31);
+    -moz-box-shadow: 0px 4px 11px -1px rgba(0, 0, 0, 0.31);
+    box-shadow: 0px 4px 11px -1px rgba(0, 0, 0, 0.31);
 }
-
 .resp-tab-active {
-    border: 1px solid #212121 !important;
+    border: none;
 	border-bottom: none;
-	margin-bottom: -1px !important;
-	padding: 12px 14px 14px 14px !important;
-	border-bottom: 0px #fff solid !important;
 }
 .resp-vtabs .resp-tabs-list li i {
     color: #000000;
@@ -67,7 +69,7 @@ h2.resp-accordion {
 }
 .resp-tab-active {
     border-bottom: none;
-    background-color: #212121!important;
+    background-color: #1accfd!important;
     color: #fff;
 }
 
@@ -75,10 +77,6 @@ h2.resp-accordion {
     display: block;
 }
 
-.resp-tab-content {
-border: 1px solid #212121;
-    border-top-color: #212121;
-}
 
 h2.resp-accordion {
     font-size: 13px;
@@ -229,12 +227,20 @@ h2.resp-tab-active {
 h2.resp-accordion:first-child {
     border-top: 1px solid #c1c1c1;/* !important;*/
 }
-
-/*Here your can change the breakpoint to set the accordion, when screen resolution changed*/
-@media only screen and (max-width: 900px) {
-	.resp-tabs-list li {
-		font-size: 18px;	
-	}
+@media (max-width: 1080px){
+    .resp-tabs-list li {
+        font-size: 18px;
+        padding: 13px 37.8px;
+    }   
+}
+@media (max-width: 991px){
+    .resp-tabs-list li {
+        font-size: 16px;
+        padding: 13px 17.5px;
+    }
+    .resp-tab-content {
+        padding: 40px 35px;
+    }
 }
 @media only screen and (max-width: 768px) {
 	h2.resp-accordion.hor_1 i {
@@ -286,18 +292,18 @@ h2.resp-accordion:first-child {
 		margin-bottom: 0px;
 	}
 }
+@media (max-width: 667px){
+    .resp-tab-content {
+        padding: 40px 21px;
+    }
+}
+@media (max-width: 600px){
+    .resp-tab-content {
+        padding: 23px 20px;
+    }
+}
 @media (max-width: 480px){
 	.resp-tab-content {
-		padding: 25px 35px;
-	}
-}
-@media (max-width: 414px){
-	.resp-tab-content {
-		padding: 15px 25px;
-	}
-}
-@media (max-width: 320px){
-	.resp-tab-content {
-		padding: 15px 15px;
+		padding: 20px 15px;
 	}
 }

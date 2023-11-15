@@ -78,3 +78,36 @@ def filtering_products_Based_on_category_DEF(request):
     context={'categories_VAR':categories_VAR , 'products_all_VAR':products_VAR}
     
     return render(request, "dashboard/index.html", context)
+
+
+def product_filter_menu_by_category_id_DEF(request , category_id):
+    
+    sub_categories_VAR = SubCategoryMODEL.objects.all()
+
+    if category_id:
+        products_all_VAR = ProductMODEL.objects.filter (product_category=category_id)
+        
+        context={'sub_categories_VAR':sub_categories_VAR ,'products_all_VAR':products_all_VAR }
+        
+        return render(request, 'dashboard/index.html' ,context) 
+    else:
+        products_all_VAR = ProductMODEL.objects.all()
+        
+        context={'sub_categories_VAR':sub_categories_VAR ,'products_all_VAR':products_all_VAR}
+        
+        return render(request,"dashboard/index.html",context)
+
+
+
+
+# Fish				            6
+# Frozen Food			        5
+# Snack  Food			        5
+# Canned, Dry & Packaged Food	5
+# Beverages		                5
+# Bedding	bedding			    4
+# Bath				            4
+# Furniture			            4
+# Televisions			        1
+# Laptops & Computers		    1
+# Mobiles & Accessories		    1

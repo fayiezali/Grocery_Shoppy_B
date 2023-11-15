@@ -41,7 +41,7 @@
 					<tbody>
 							<tr>
 								<td>0</td>
-								<td> <a href="/category_sub_path"> <h4 class="text-left"> All Subcategory </h4></a></td>
+								<td> <a href="/category_sub_path">  <h4 class="text-left" > All Subcategory </h4></a></td>
 							</tr>
 					</tbody>
 					<tbody>
@@ -53,52 +53,9 @@
 							{% endfor %}
 					</tbody>
 				</table>
-				<div class="left-side">
-				</div>  
-
-						<div class="list-group">
-							{% comment %} <a href="/category_path" class="list-group-item list-group-item-action btn btn-outline-success">All Category</a>
-							{% for category_item in categories_VAR %}
-							<a href="/category_path?category_item={{category_item.id}}"
-							print(category_item.id)
-								class="list-group-item list-group-item-action btn btn-outline-success ">{{category_item.Cate_name}}</a>
-							{% endfor %} 
-
-							{% for category_item in categories_VAR %}
-							<a  href="/category_path?category_item={{category_item.id}}"> <p>{{category_item.Cate_name}} <p></a>
-							{% endfor %}
-
-
-								<div class="left-side">
-								<a href="/category_sub_path" class="list-group-item list-group-item-action btn btn-outline-success">All Subcategory</a>
-								{% for category_sub_item in sub_categories_VAR %}
-								<a  href="/category_sub_path?category_sub_item={{category_sub_item.id}}"> <p>{{category_sub_item.SubCat_name}}<p></a>
-								{% endfor %} {% endcomment %}
-
-							{% comment %} 
-								<div class="left-side">
-								<a href="/category_path" class="list-group-item list-group-item-action btn btn-outline-success">All Category</a>
-								<a href="/category_sub_path" class="list-group-item list-group-item-action btn btn-outline-success">All Subcategory</a>
-
-								{% for category_item in categories_VAR %}
-									<a  href="/category_path?category_item={{category_item.id}}"> <p>{{category_item.Cate_name}} <p></a>
-								{% endfor %}
-
-								{% for category_sub_item in sub_categories_VAR %}
-									<a  href="/category_sub_path?category_sub_item={{category_sub_item.id}}"> <p>{{category_sub_item.SubCat_name}}<p></a>
-								{% endfor %} 
-							</div>   
-							{% endcomment %}
-
-
-		</div>
-	</div>
+<div class="list-group">
 </div>
-
-<div class="deal-leftmk left-side">
-	<div class="special-sec1">
-		<div class="clearfix"></div>
-	</div>
+</div>
 </div>
 </div>
 
