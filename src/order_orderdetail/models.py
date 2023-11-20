@@ -56,14 +56,14 @@ class OrderMODEL(models.Model):
             # Calculation multiply the price of the product by the quantity
             total_VAR += sub.OrderDetails_price * sub.OrderDetails_quantity
         return total_VAR
-
-
+#
 # 
 #
 class OrderDetailsMODEL(models.Model):
     OrderDetails_product  = models.ForeignKey(ProductMODEL , on_delete = models.CASCADE)
     OrderDetails_order    = models.ForeignKey(OrderMODEL   , on_delete = models.CASCADE)
-    OrderDetails_price    = models.DecimalField(max_digits=10,decimal_places=2)
+    # OrderDetails_price    = models.DecimalField(max_digits=10,decimal_places=2)
+    OrderDetails_price    = models.IntegerField()
     OrderDetails_quantity = models.IntegerField()
     class Meta:
         ordering = ('-OrderDetails_order',)
@@ -76,6 +76,26 @@ class OrderDetailsMODEL(models.Model):
         return  'User Name : ' + str(self.OrderDetails_order.order_user) + ' - ' +\
                 'Product: ' + self.OrderDetails_product.product_name + ' - ' +\
                 'Order Id: ' + str(self.OrderDetails_order.id)
+# ===============Example For - Property & Method============================
+    @property
+    def get_example_PROPERTY(self):
+        total = 100 + 50
+        return total 
+
+    @staticmethod
+    def get_all_order_STATICMETHOD():
+        send_result = OrderDetailsMODEL.objects.all()
+        return send_result
+    
+    @staticmethod
+    def is_adult_STATICMETHOD(age):
+        if age > 18:
+            send_result = 'Yes' 
+            return send_result
+        else:
+            send_result = 'No' 
+            return send_result
+# ===============TESTING============================
 
     #
     @property
@@ -88,3 +108,4 @@ class OrderDetailsMODEL(models.Model):
         for sub in order_number_VAR:
             # 
             return sub.OrderDetails_order.id
+
